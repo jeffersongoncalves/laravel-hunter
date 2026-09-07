@@ -1,0 +1,61 @@
+{
+    "name": "jeffersongoncalves/laravel-hunter",
+    "description": "Hunter.io email finding, verification, domain search and lead management API for Laravel",
+    "keywords": [
+        "laravel",
+        "laravel-hunter"
+    ],
+    "homepage": "https://github.com/jeffersongoncalves/laravel-hunter",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jefferson Sim\u00e3o Gon\u00e7alves",
+            "email": "gerson.simao.92@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "spatie/laravel-package-tools": "^1.16",
+        "illuminate/contracts": "^12.0|^13.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^10.0|^11.0",
+        "pestphp/pest": "^3.0|^4.0",
+        "larastan/larastan": "^2.0|^3.0",
+        "laravel/pint": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jeffersongoncalves\\LaravelHunter\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Jeffersongoncalves\\LaravelHunter\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint",
+        "analyse": "vendor/bin/phpstan analyse"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Jeffersongoncalves\\LaravelHunter\\LaravelHunterServiceProvider"
+            ],
+            "aliases": {
+                "LaravelHunter": "Jeffersongoncalves\\LaravelHunter\\Facades\\LaravelHunter"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
