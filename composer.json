@@ -15,26 +15,29 @@
     ],
     "require": {
         "php": "^8.2",
-        "spatie/laravel-package-tools": "^1.16",
-        "illuminate/contracts": "^12.0|^13.0"
+        "illuminate/http": "^12.0|^13.0",
+        "illuminate/support": "^12.0|^13.0",
+        "spatie/laravel-package-tools": "^1.16"
     },
     "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.21",
         "orchestra/testbench": "^10.0|^11.0",
         "pestphp/pest": "^3.0|^4.0",
-        "larastan/larastan": "^2.0|^3.0",
-        "laravel/pint": "^1.0"
+        "pestphp/pest-plugin-laravel": "^3.0|^4.0"
     },
     "autoload": {
         "psr-4": {
-            "Jeffersongoncalves\\LaravelHunter\\": "src/"
+            "JeffersonGoncalves\\Hunter\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Jeffersongoncalves\\LaravelHunter\\Tests\\": "tests/"
+            "JeffersonGoncalves\\Hunter\\Tests\\": "tests/"
         }
     },
     "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
         "test": "vendor/bin/pest",
         "test-coverage": "vendor/bin/pest --coverage",
         "format": "vendor/bin/pint",
@@ -43,16 +46,17 @@
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "pestphp/pest-plugin": true
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Jeffersongoncalves\\LaravelHunter\\LaravelHunterServiceProvider"
+                "JeffersonGoncalves\\Hunter\\HunterServiceProvider"
             ],
             "aliases": {
-                "LaravelHunter": "Jeffersongoncalves\\LaravelHunter\\Facades\\LaravelHunter"
+                "Hunter": "JeffersonGoncalves\\Hunter\\Facades\\Hunter"
             }
         }
     },

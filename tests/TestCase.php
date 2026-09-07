@@ -1,8 +1,8 @@
 <?php
 
-namespace Jeffersongoncalves\LaravelHunter\Tests;
+namespace JeffersonGoncalves\Hunter\Tests;
 
-use Jeffersongoncalves\LaravelHunter\LaravelHunterServiceProvider;
+use JeffersonGoncalves\Hunter\HunterServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
@@ -10,7 +10,13 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app): array
     {
         return [
-            LaravelHunterServiceProvider::class,
+            HunterServiceProvider::class,
         ];
+    }
+
+    protected function defineEnvironment($app): void
+    {
+        $app['config']->set('hunter.api_key', 'fake-api-key');
+        $app['config']->set('hunter.base_url', 'https://api.hunter.io/v2');
     }
 }

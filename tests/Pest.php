@@ -1,3 +1,5 @@
 <?php
 
-uses(Jeffersongoncalves\LaravelHunter\Tests\TestCase::class)->in('Feature', 'Unit');
+use JeffersonGoncalves\Hunter\Tests\TestCase;
+
+uses(TestCase::class)->in('Feature', 'Unit');
